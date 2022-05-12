@@ -1,0 +1,11 @@
+.current-display-container {
+    background-color: rgb(175, 226, 87);
+}
+
+.current-display {
+    min-height: 2em;
+}
+
+body {
+    font-size: 2em;
+}
