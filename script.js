@@ -10,9 +10,43 @@ function operate(op, a, b) {
     if (op === "/") return divide(a, b);
 }
 
+function clearIfNewOperandLine() {
+    if (newOperandLine) {
+        display.innerText = "";
+        newOperandLine = false;
+    }
+}
+
+function addIfZeroDisplayed(numToAdd) {
+    if (display.innerText === "0") {
+        display.innerText = numToAdd;
+    }
+
+    else {
+        display.innerText += numToAdd;
+    }    
+}
+
+function operateIfWithPreviousResult () {
+    if (currentOperator !== "") {
+        secondOperand = display.innerText;
+        display.innerText = operate(currentOperator, +firstOperand, +secondOperand);       
+        secondOperand = "";
+    }
+}
+
+function registerOperandAndOperator(operand) {
+    firstOperand = display.innerText;
+    currentOperator = operand;
+    newOperandLine = true;
+}
+
+const display = document.querySelector(".current-display");
+
 let firstOperand = "";
 let secondOperand = "";
 let currentOperator = "";
+let newOperandLine = false;
 
 const btnZero = document.querySelector(".digit-zero");
 const btnOne = document.querySelector(".digit-one");
@@ -26,173 +60,53 @@ const btnEight = document.querySelector(".digit-eight");
 const btnNine = document.querySelector(".digit-nine");
 
 btnZero.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "0";
-    }
-
-    else {
-        display.innerText += "0";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(0);
 })
 
 btnOne.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "1";
-    }
-
-    else {
-        display.innerText += "1";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(1);
 })
 
 btnTwo.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "2";
-    }
-
-    else {
-        display.innerText += "2";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(2);
 })
 
 btnThree.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "3";
-    }
-
-    else {
-        display.innerText += "3";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(3);
 })
 
 btnFour.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "4";
-    }
-
-    else {
-        display.innerText += "4";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(4);
 })
 
 btnFive.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "5";
-    }
-
-    else {
-        display.innerText += "5";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(5);
 })
 
 btnSix.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "6";
-    }
-
-    else {
-        display.innerText += "6";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(6);
 })
 
 btnSeven.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "7";
-    }
-
-    else {
-        display.innerText += "7";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(7);
 })
 
 btnEight.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "8";
-    }
-
-    else {
-        display.innerText += "8";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(8);
 })
 
 btnNine.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (newOperandLine) {
-        display.innerText = "";
-        newOperandLine = false;
-    }
-
-    if (display.innerText === "0") {
-        display.innerText = "9";
-    }
-
-    else {
-        display.innerText += "9";
-    }
+    clearIfNewOperandLine();
+    addIfZeroDisplayed(9);
 })
 
 const btnPlus = document.querySelector(".operator-plus");
@@ -201,67 +115,27 @@ const btnMultiply = document.querySelector(".operator-multiply");
 const btnDivide = document.querySelector(".operator-divide");
 const btnEquals = document.querySelector(".operator-equals");
 
-let newOperandLine = false;
-
 btnPlus.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (currentOperator !== "") {
-        secondOperand = display.innerText;
-        display.innerText = operate(currentOperator, +firstOperand, +secondOperand);       
-        secondOperand = "";
-    }
-
-    firstOperand = display.innerText;
-    currentOperator = "+"
-    newOperandLine = true;
+    operateIfWithPreviousResult();
+    registerOperandAndOperator("+");
 })
 
 btnMinus.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (currentOperator !== "") {
-        secondOperand = display.innerText;
-        display.innerText = operate(currentOperator, +firstOperand, +secondOperand);       
-        secondOperand = "";
-    }
-
-    firstOperand = display.innerText;
-    currentOperator = "-"
-    newOperandLine = true;
+    operateIfWithPreviousResult();
+    registerOperandAndOperator("-");
 })
 
 btnMultiply.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (currentOperator !== "") {
-        secondOperand = display.innerText;
-        display.innerText = operate(currentOperator, +firstOperand, +secondOperand);       
-        secondOperand = "";
-    }
-
-    firstOperand = display.innerText;
-    currentOperator = "*"
-    newOperandLine = true;
+    operateIfWithPreviousResult();
+    registerOperandAndOperator("*");
 })
 
 btnDivide.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
-    if (currentOperator !== "") {
-        secondOperand = display.innerText;
-        display.innerText = operate(currentOperator, +firstOperand, +secondOperand);       
-        secondOperand = "";
-    }
-
-    firstOperand = display.innerText;
-    currentOperator = "/"
-    newOperandLine = true;
+    operateIfWithPreviousResult();
+    registerOperandAndOperator("/");
 })
 
 btnEquals.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
-
     if (firstOperand !== "") {
         secondOperand = display.innerText;
         display.innerText = operate(currentOperator, +firstOperand, +secondOperand);
@@ -274,9 +148,7 @@ btnEquals.addEventListener('click', () => {
 const btnAC = document.querySelector(".all-clear");
 
 btnAC.addEventListener('click', () => {
-    const display = document.querySelector(".current-display");
     display.innerText = "0";
-
     firstOperand = "";
     secondOperand = "";
     currentOperator = "";
