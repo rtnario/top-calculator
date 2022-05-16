@@ -1,11 +1,108 @@
-.current-display-container {
-    background-color: rgb(175, 226, 87);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.current-display {
-    min-height: 2em;
+.calculator {
+    background-color: lightgrey;
+}
+
+.current-display-container {
+    background-color: white;
+    height: 5rem;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(5, 100px);
+    grid-template-areas: "btn-ac    btn-divide btn-multiply btn-minus"
+                         "btn-seven btn-eight  btn-nine     btn-plus"
+                         "btn-four  btn-five   btn-six      btn-plus"
+                         "btn-one   btn-two    btn-three    btn-equals"
+                         "btn-zero  btn-zero   btn-zero     btn-equals";
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+
+.current-display-container {
+    margin: 1rem;
+}
+
+.digit-one {
+    grid-area: btn-one;
+}
+
+.digit-two {
+    grid-area: btn-two;
+}
+
+.digit-three {
+    grid-area: btn-three;
+}
+
+.digit-four {
+    grid-area: btn-four;
+}
+
+.digit-five {
+    grid-area: btn-five;
+}
+
+.digit-six {
+    grid-area: btn-six;
+}
+
+.digit-seven {
+    grid-area: btn-seven;
+}
+
+.digit-eight {
+    grid-area: btn-eight;
+}
+
+.digit-nine {
+    grid-area: btn-nine;
+}
+
+.digit-zero {
+    grid-area: btn-zero;
+}
+
+.all-clear {
+    grid-area: btn-ac;
+}
+
+.operator-plus {
+    grid-area: btn-plus;
+}
+
+.operator-minus {
+    grid-area: btn-minus;
+}
+
+.operator-multiply {
+    grid-area: btn-multiply;
+}
+
+.operator-divide {
+    grid-area: btn-divide;
+}
+
+.operator-equals {
+    grid-area: btn-equals;
+}
+
+.button {
+    font-size: 2rem;
 }
 
 body {
-    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
 }
