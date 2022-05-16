@@ -155,28 +155,28 @@ btnAC.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', e => {
-    switch (true) {
-        case e.key === "1":
-        case e.key === "2":
-        case e.key === "3":
-        case e.key === "4":
-        case e.key === "5":
-        case e.key === "6":
-        case e.key === "7":
-        case e.key === "8":
-        case e.key === "9":
-        case e.key === "0":
+    switch (e.key) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":
             clearIfNewOperandLine();
             addIfZeroDisplayed(e.key);
             break;
-        case e.key === "+":
-        case e.key === "-":
-        case e.key === "*":
-        case e.key === "/":
+        case "+":
+        case "-":
+        case "*":
+        case "/":
             operateIfWithPreviousResult();
             registerOperandAndOperator(e.key);
             break;
-        case e.key === "Enter":
+        case "Enter":
             if (firstOperand !== "") {
                 secondOperand = display.innerText;
                 display.innerText = operate(currentOperator, +firstOperand, +secondOperand);
@@ -185,8 +185,8 @@ document.addEventListener('keydown', e => {
                 currentOperator = "";
             }
             break;
-        case e.key === "Backspace":
-            display.innerText = display.innerText.slice(0,display.innerText.length - 1);
+        case "Backspace":
+            display.innerText = display.innerText.slice(0, display.innerText.length - 1);
             if (display.innerText === "") { display.innerText = "0" };
     }
 });

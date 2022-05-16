@@ -6,6 +6,8 @@
 
 .calculator {
     background-color: lightgrey;
+    border-radius: 3% 3% 3% 3%;
+    padding: 1rem;
 }
 
 .current-display-container {
