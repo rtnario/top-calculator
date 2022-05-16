@@ -157,60 +157,24 @@ btnAC.addEventListener('click', () => {
 document.addEventListener('keydown', e => {
     switch (true) {
         case e.key === "1":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(1);
-            break;
         case e.key === "2":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(2);
-            break;
         case e.key === "3":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(3);
-            break;
         case e.key === "4":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(4);
-            break;
         case e.key === "5":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(5);
-            break;
         case e.key === "6":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(6);
-            break;
         case e.key === "7":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(7);
-            break;
         case e.key === "8":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(8);
-            break;
         case e.key === "9":
-            clearIfNewOperandLine();
-            addIfZeroDisplayed(9);
-            break;
         case e.key === "0":
             clearIfNewOperandLine();
-            addIfZeroDisplayed(0);
+            addIfZeroDisplayed(e.key);
             break;
         case e.key === "+":
-            operateIfWithPreviousResult();
-            registerOperandAndOperator("+");
-            break;
         case e.key === "-":
-            operateIfWithPreviousResult();
-            registerOperandAndOperator("-");
-            break;
         case e.key === "*":
-            operateIfWithPreviousResult();
-            registerOperandAndOperator("*");
-            break;
         case e.key === "/":
             operateIfWithPreviousResult();
-            registerOperandAndOperator("/");
+            registerOperandAndOperator(e.key);
             break;
         case e.key === "Enter":
             if (firstOperand !== "") {
